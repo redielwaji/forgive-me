@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Permintaan Maaf untuk Nur Hapizoh 💖</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #ffe6f0, #dbe9ff);
+        font-family: "Poppins", sans-serif;
+        padding-top: 30px;
+        min-height: 100vh;
+      }
+
+      .apology-container {
+        max-width: 800px;
+        margin: auto;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+        padding: 35px;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.6s ease-in-out;
+      }
+
+      .header h1 {
+        color: #e74c3c;
+        font-weight: 700;
+      }
+
+      .message {
+        font-size: 18px;
+        line-height: 1.7;
+        text-align: justify;
+        color: #333;
+      }
+
+      .buttons-container {
+        text-align: center;
+        margin-top: 35px;
+      }
+
+      .btn-forgive {
+        background-color: #2ecc71;
+        color: #fff;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-size: 18px;
+        border: none;
+        margin-right: 15px;
+        transition: 0.3s;
+      }
+
+      .btn-forgive:hover {
+        background-color: #27ae60;
+        transform: scale(1.05);
+      }
+
+      .btn-not-forgive {
+        background-color: #e74c3c;
+        color: #fff;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-size: 18px;
+        border: none;
+        position: relative;
+        transition:
+          transform 0.3s ease,
+          top 0.3s ease,
+          left 0.3s ease;
+      }
+
+      .heart {
+        color: #e74c3c;
+        animation: pulse 1.3s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .slide-in {
+        animation: slideIn 0.8s ease-in-out forwards;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(60px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 576px) {
+        .btn-forgive,
+        .btn-not-forgive {
+          display: block;
+          width: 100%;
+          margin-bottom: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="apology-container slide-in" id="apologyCard">
+        <div class="header text-center mb-4">
+          <h1>
+            Permintaan Maaf untuk <span class="heart">Nur Hapizoh 💞</span>
+          </h1>
+          <p class="text-muted">
+            Dari seseorang yang (katanya) sibuk tapi tetep mikirin kamu 😅
+          </p>
+        </div>
+
+        <div class="message">
+          <p>Hai Hapizoh,</p>
+          <p>
+            Aku minta maaf banget ya karena akhir-akhir ini aku jarang chat
+            kamu. Aku tahu kamu bilang "<b>iya org sibuk.....</b>", dan itu
+            nyentil banget buat aku 😔
+          </p>
+          <p>
+            Aku lagi fokus belajar desain dan ngembangin skill buat masa depan.
+            Orang tua aku bahkan udah support banget — sampai dibeliin 2 laptop
+            💻, jadi aku ngerasa wajib banget berusaha sebaik mungkin.
+          </p>
+          <p>
+            Tapi aku sadar, sibuk bukan alasan buat cuek sama kamu. Kamu tuh
+            istimewa, dan aku tetap pengen nyempetin waktu buat sekadar tahu
+            kabar kamu 💬
+          </p>
+          <p>
+            Jadi... maafin aku ya? Aku janji bakal atur waktu lebih baik lagi
+            biar kamu nggak ngerasa diabaikan ❤️
+          </p>
+        </div>
+
+        <div class="buttons-container">
+          <p class="fw-semibold mt-3">Apakah kamu mau memaafkan aku?</p>
+          <button id="btnForgive" class="btn-forgive">
+            💚 Iya, Aku Maafkan 💚
+          </button>
+          <button id="btnNotForgive" class="btn-not-forgive">
+            💢 Tidak, Aku Masih Kesel 💢
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal untuk "Tidak Dimaafkan" -->
+    <div
+      class="modal fade"
+      id="modalNotForgiven"
+      tabindex="-1"
+      aria-labelledby="modalNotForgivenLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-3">
+          <h5 id="modalNotForgivenLabel" class="text-danger fw-bold">
+            😝 Ehh nggak bisa diklik 😝
+          </h5>
+          <p>Maafin aja deh, biar hati kamu lega dan aku seneng 💕</p>
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">
+            Oke deh 😆
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal untuk "Kirim Chat Sekarang" -->
+    <div
+      class="modal fade"
+      id="modalChat"
+      tabindex="-1"
+      aria-labelledby="modalChatLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-3">
+          <h5 id="modalChatLabel" class="text-success fw-bold">
+            💌 Yuk Lanjut Chat!
+          </h5>
+          <p>
+            Tapi pelan-pelan aja ya... biar rindunya gak numpuk kebanyakan 😆
+          </p>
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            data-bs-dismiss="modal"
+          >
+            Siap 😍
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      const btnForgive = document.getElementById("btnForgive");
+      const btnNotForgive = document.getElementById("btnNotForgive");
+      const card = document.getElementById("apologyCard");
+
+      const modalNotForgiven = new bootstrap.Modal(
+        document.getElementById("modalNotForgiven")
+      );
+      const modalChat = new bootstrap.Modal(
+        document.getElementById("modalChat")
+      );
+
+      // 💚 Saat klik "Iya, Aku Maafkan"
+      btnForgive.addEventListener("click", () => {
+        card.style.transition = "opacity 0.6s ease";
+        card.style.opacity = "0";
+
+        setTimeout(() => {
+          card.innerHTML = `
+        <div class="text-center py-5 slide-in position-relative">
+          <div class="heart" style="font-size: 70px;">❤️</div>
+          <h2 class="mt-4 text-success fw-bold">Terima Kasih Udah Memaafkan Aku, Hapizoh! 🥰</h2>
+          <p class="mt-3 fs-5">
+            Kamu tau nggak? Pas kamu klik tombol itu, aku senyum sendiri kayak orang bego 😅<br>
+            Tapi serius, aku seneng banget... rasanya kayak habis dapet <b>kelegaan + kebahagiaan</b> dalam satu paket 💌
+          </p>
+          <p class="mt-3 fs-5">
+            Aku janji nggak bakal ngilang lagi tanpa kabar.<br>
+            Kalau aku sibuk, aku tetep bakal nyempetin bilang <i>"Hai Hapizoh, semangat ya hari ini 🤍"</i> 💬
+          </p>
+          <p class="mt-3 fs-5">
+            Makasih udah sabar ngadepin aku yang kadang lemot, sok sibuk, tapi tulus banget sama kamu 😳
+          </p>
+          <button class="btn btn-outline-success mt-4 px-4" id="btnChatNow">
+            💌 Kirim Chat Sekarang
+          </button>
+          <canvas id="heartsCanvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"></canvas>
+        </div>
+      `;
+          card.style.opacity = "1";
+          startHeartsAnimation();
+
+          document
+            .getElementById("btnChatNow")
+            .addEventListener("click", () => modalChat.show());
+        }, 600);
+      });
+
+      // 💢 Efek tombol "Tidak Dimaafkan" lari-lari
+      btnNotForgive.addEventListener("mouseover", () => {
+        const cardRect = card.getBoundingClientRect();
+        const maxX = cardRect.width - btnNotForgive.clientWidth - 80;
+        const maxY = cardRect.height - btnNotForgive.clientHeight - 80;
+        const randomX = Math.random() * maxX * 0.4;
+        const randomY = Math.random() * maxY * 0.4;
+        btnNotForgive.style.position = "absolute";
+        btnNotForgive.style.left = `${randomX}px`;
+        btnNotForgive.style.top = `${randomY}px`;
+      });
+
+      btnNotForgive.addEventListener("click", (e) => {
+        e.preventDefault();
+        modalNotForgiven.show();
+      });
+
+      // 💖 Efek hati beterbangan
+      function startHeartsAnimation() {
+        const canvas = document.getElementById("heartsCanvas");
+        const ctx = canvas.getContext("2d");
+        let hearts = [];
+
+        canvas.width = card.clientWidth;
+        canvas.height = card.clientHeight;
+
+        function randomColor() {
+          const colors = ["#ff5c8d", "#ff9a9e", "#fad0c4", "#fbc2eb"];
+          return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function createHeart() {
+          hearts.push({
+            x: Math.random() * canvas.width,
+            y: canvas.height + 10,
+            size: Math.random() * 20 + 10,
+            speed: Math.random() * 2 + 1,
+            color: randomColor(),
+          });
+        }
+
+        function drawHearts() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          hearts.forEach((heart, i) => {
+            ctx.fillStyle = heart.color;
+            ctx.beginPath();
+            ctx.moveTo(heart.x, heart.y);
+            ctx.bezierCurveTo(
+              heart.x - heart.size / 2,
+              heart.y - heart.size / 2,
+              heart.x - heart.size,
+              heart.y + heart.size / 3,
+              heart.x,
+              heart.y + heart.size
+            );
+            ctx.bezierCurveTo(
+              heart.x + heart.size,
+              heart.y + heart.size / 3,
+              heart.x + heart.size / 2,
+              heart.y - heart.size / 2,
+              heart.x,
+              heart.y
+            );
+            ctx.fill();
+            heart.y -= heart.speed;
+            if (heart.y + heart.size < 0) hearts.splice(i, 1);
+          });
+        }
+
+        function loop() {
+          drawHearts();
+          if (Math.random() < 0.1) createHeart();
+          requestAnimationFrame(loop);
+        }
+        loop();
+      }
+    </script>
+  </body>
+</html>
